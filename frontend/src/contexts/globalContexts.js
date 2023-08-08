@@ -38,9 +38,48 @@ export const GlobalProvider = ({ children }) => {
     return totalIncome;
   };
 
+  const addExpense = async (expense) => {
+    const response = await axios
+      .post(`${BASE_URL}add-expense`, expense)
+      .catch((error) => {
+        setError(error.response);
+      });
+    getExpenses();
+  };
+
+  const getExpenses = async () => {
+    const response = await axios.get(`${BASE_URL}get-expenses`);
+    setExpenses(response.data);
+    // console.log(response.data);
+  };
+
+  const deleteExpense = async (id) => {
+    const response = await axios.delete(`${BASE_URL}delete-expense/${id}`);
+    getExpenses();
+  };
+
+  const totalExpenses = () => {
+    let totalExpenses = 0;
+    expenses.forEach((expense) => {
+      totalExpenses += expense.amount;
+    });
+    return totalExpenses;
+  };
+
   return (
     <GlobalContexts.Provider
-      value={{ addIncome, getIncomes, incomes, deleteIncome, totalIncome }}
+      value={{
+        addIncome,
+        getIncomes,
+        incomes,
+        deleteIncome,
+        totalIncome,
+        addExpense,
+        deleteExpense,
+        getExpenses,
+        expenses,
+        totalExpenses,
+      }}
     >
       {children}
     </GlobalContexts.Provider>

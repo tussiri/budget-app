@@ -15,12 +15,13 @@ import {
   food,
   medical,
   tv,
-  takeaway,
+  takeout,
   clothing,
   travel,
   circle,
 } from "../../utils/Icons";
 import Button from "../Button/Button";
+import { DateFormat } from "../../utils/DateFormat";
 
 function IncomeItem({
   id,
@@ -62,8 +63,8 @@ function IncomeItem({
         return medical;
       case "subscriptions":
         return tv;
-      case "eating out":
-        return takeaway;
+      case "take out":
+        return takeout;
       case "clothing":
         return clothing;
       case "travelling":
@@ -88,7 +89,7 @@ function IncomeItem({
               {dollar} {amount}
             </p>
             <p>
-              {calendar} {date}
+              {calendar} {DateFormat(date)}
             </p>
             <p>
               {comment} {description}
