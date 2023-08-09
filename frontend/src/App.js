@@ -8,6 +8,7 @@ import Expenses from "./Components/Expenses/Expenses";
 import Income from "./Components/Incomes/Income";
 import Dashboard from "./Components/Dashboard/Dashboard";
 import { useGlobalContext } from "./contexts/globalContexts";
+import History from "./Components/History/History";
 
 function App() {
   const [active, setActive] = useState(1);
@@ -23,7 +24,7 @@ function App() {
       case 1:
         return <Dashboard />;
       case 2:
-        return <Dashboard />;
+        return <History displayRecent={false} />;
       case 3:
         return <Income />;
       case 4:
@@ -47,7 +48,7 @@ function App() {
 const AppStyled = styled.div`
   height: 100vh;
   background-image: url(${(props) => props.wave});
-  postion: relative;
+  position: relative;
   main {
     flex: 1;
     background: rgba(252, 246, 249, 0.78);

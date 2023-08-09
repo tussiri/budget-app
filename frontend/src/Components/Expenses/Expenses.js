@@ -51,7 +51,7 @@ function Expenses() {
 }
 
 const ExpenseStyled = styled.div`
-  display: flex;
+  ${"" /* display: flex; */}
   width: 100%;
   ${"" /* flex-direction: column; */}
   overflow: auto;

@@ -9,7 +9,6 @@ export const MainLayout = styled.div`
 
 export const InnerLayout = styled.div`
   padding: 2rem 1.5rem;
-  width: 100%;
   @media (max-width: 768px) {
     width: 100%;
   }
